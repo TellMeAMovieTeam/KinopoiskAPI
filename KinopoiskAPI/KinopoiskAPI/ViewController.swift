@@ -10,6 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBAction func getFilm(_ sender: AnyObject) {
+        
+    var test = ""
+        
+      KinopoiskAPI.getFilm(filmID: 714888) { result in
+            test = result
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
