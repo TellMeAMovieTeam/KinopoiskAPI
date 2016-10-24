@@ -10,7 +10,7 @@ import Foundation
 
 class KinopoiskAPI {
     
-    
+    public static var resultVar : String = "";
     
     /// Получает полное описание фильма
     ///
@@ -26,6 +26,7 @@ class KinopoiskAPI {
             } else {
                 if let returnData = String(data: data!, encoding: .utf8) {
                     completion(returnData)
+                    self.resultVar = returnData
                 } else {
                     completion("")
                 }

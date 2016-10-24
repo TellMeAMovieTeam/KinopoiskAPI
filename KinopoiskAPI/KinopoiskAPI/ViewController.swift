@@ -18,6 +18,10 @@ class ViewController: UIViewController {
             test = result
         }
         
+    //print(test)
+        
+    var test2 = KinopoiskAPI.resultVar
+        print(test2)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
