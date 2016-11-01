@@ -9,6 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBAction func getGenres(_ sender: AnyObject) {
+        
+        KinopoiskGenres.getGenres()
+        print(KinopoiskGenres.genres)
+    }
 
     @IBAction func getFilm(_ sender: AnyObject) {
         
