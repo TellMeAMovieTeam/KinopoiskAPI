@@ -11,6 +11,8 @@
 		163D975E1DC8C57400282F79 /* README.MD in Sources */ = {isa = PBXBuildFile; fileRef = 163D975D1DC8C57400282F79 /* README.MD */; };
 		163D97601DC8C5A000282F79 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 163D975F1DC8C5A000282F79 /* README.md */; };
 		163D97631DC8C69400282F79 /* README.MD in Sources */ = {isa = PBXBuildFile; fileRef = 163D97621DC8C69400282F79 /* README.MD */; };
+		163D97651DC8C85E00282F79 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163D97641DC8C85E00282F79 /* Client.swift */; };
+		163D97671DC8C8FB00282F79 /* PageResultsKinopoisk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163D97661DC8C8FB00282F79 /* PageResultsKinopoisk.swift */; };
 		16E448531DC8C497000150F5 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E448521DC8C497000150F5 /* SwiftyJSON.swift */; };
 		16F0B93B1DBA9DCA004ABD07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F0B93A1DBA9DCA004ABD07 /* AppDelegate.swift */; };
 		16F0B93D1DBA9DCA004ABD07 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F0B93C1DBA9DCA004ABD07 /* ViewController.swift */; };
@@ -25,6 +27,8 @@
 		163D975D1DC8C57400282F79 /* README.MD */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.MD; sourceTree = "<group>"; };
 		163D975F1DC8C5A000282F79 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = KinopoiskAPI/Models/README.md; sourceTree = SOURCE_ROOT; };
 		163D97621DC8C69400282F79 /* README.MD */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.MD; sourceTree = "<group>"; };
+		163D97641DC8C85E00282F79 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		163D97661DC8C8FB00282F79 /* PageResultsKinopoisk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageResultsKinopoisk.swift; sourceTree = "<group>"; };
 		16E448521DC8C497000150F5 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		16F0B9371DBA9DCA004ABD07 /* KinopoiskAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KinopoiskAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16F0B93A1DBA9DCA004ABD07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				163D975F1DC8C5A000282F79 /* README.md */,
+				163D97661DC8C8FB00282F79 /* PageResultsKinopoisk.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -67,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				163D975D1DC8C57400282F79 /* README.MD */,
+				163D97641DC8C85E00282F79 /* Client.swift */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -194,7 +200,9 @@
 				16F0B93B1DBA9DCA004ABD07 /* AppDelegate.swift in Sources */,
 				16E448531DC8C497000150F5 /* SwiftyJSON.swift in Sources */,
 				163D97631DC8C69400282F79 /* README.MD in Sources */,
+				163D97671DC8C8FB00282F79 /* PageResultsKinopoisk.swift in Sources */,
 				163D975C1DC8C53E00282F79 /* README.MD in Sources */,
+				163D97651DC8C85E00282F79 /* Client.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
