@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		163D975C1DC8C53E00282F79 /* README.MD in Sources */ = {isa = PBXBuildFile; fileRef = 163D975B1DC8C53E00282F79 /* README.MD */; };
+		16302BD01DC9307000F35D0E /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16302BCF1DC9307000F35D0E /* SwiftyJSON.swift */; };
 		163D975E1DC8C57400282F79 /* README.MD in Sources */ = {isa = PBXBuildFile; fileRef = 163D975D1DC8C57400282F79 /* README.MD */; };
 		163D97601DC8C5A000282F79 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 163D975F1DC8C5A000282F79 /* README.md */; };
 		163D97651DC8C85E00282F79 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163D97641DC8C85E00282F79 /* Client.swift */; };
 		163D97701DC8FBD200282F79 /* KinopoiskGenres.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163D976F1DC8FBD200282F79 /* KinopoiskGenres.swift */; };
-		16E448531DC8C497000150F5 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E448521DC8C497000150F5 /* SwiftyJSON.swift */; };
 		16F0B93B1DBA9DCA004ABD07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F0B93A1DBA9DCA004ABD07 /* AppDelegate.swift */; };
 		16F0B93D1DBA9DCA004ABD07 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F0B93C1DBA9DCA004ABD07 /* ViewController.swift */; };
 		16F0B9401DBA9DCA004ABD07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16F0B93E1DBA9DCA004ABD07 /* Main.storyboard */; };
@@ -23,12 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		163D975B1DC8C53E00282F79 /* README.MD */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.MD; sourceTree = "<group>"; };
+		16302BCF1DC9307000F35D0E /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		163D975D1DC8C57400282F79 /* README.MD */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.MD; sourceTree = "<group>"; };
 		163D975F1DC8C5A000282F79 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = KinopoiskAPI/Models/README.md; sourceTree = SOURCE_ROOT; };
 		163D97641DC8C85E00282F79 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		163D976F1DC8FBD200282F79 /* KinopoiskGenres.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KinopoiskGenres.swift; sourceTree = "<group>"; };
-		16E448521DC8C497000150F5 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		16F0B9371DBA9DCA004ABD07 /* KinopoiskAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KinopoiskAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16F0B93A1DBA9DCA004ABD07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16F0B93C1DBA9DCA004ABD07 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,18 +70,10 @@
 			path = Client;
 			sourceTree = "<group>";
 		};
-		16E448511DC8C405000150F5 /* Open Source */ = {
-			isa = PBXGroup;
-			children = (
-				16E448521DC8C497000150F5 /* SwiftyJSON.swift */,
-				163D975B1DC8C53E00282F79 /* README.MD */,
-			);
-			path = "Open Source";
-			sourceTree = "<group>";
-		};
 		16F0B92E1DBA9DC9004ABD07 = {
 			isa = PBXGroup;
 			children = (
+				16302BCF1DC9307000F35D0E /* SwiftyJSON.swift */,
 				16F0B9391DBA9DCA004ABD07 /* KinopoiskAPI */,
 				16F0B9381DBA9DCA004ABD07 /* Products */,
 				B4830FE6C247F99177A7787E /* Pods */,
@@ -102,7 +92,6 @@
 		16F0B9391DBA9DCA004ABD07 /* KinopoiskAPI */ = {
 			isa = PBXGroup;
 			children = (
-				16E448511DC8C405000150F5 /* Open Source */,
 				16E448501DC8C3BA000150F5 /* Client */,
 				16E4484F1DC8C384000150F5 /* Models */,
 				16F0B93A1DBA9DCA004ABD07 /* AppDelegate.swift */,
@@ -247,7 +236,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -260,11 +249,10 @@
 				163D975E1DC8C57400282F79 /* README.MD in Sources */,
 				16F0B94D1DBA9E67004ABD07 /* KinopoiskAPI.swift in Sources */,
 				16F0B93D1DBA9DCA004ABD07 /* ViewController.swift in Sources */,
+				16302BD01DC9307000F35D0E /* SwiftyJSON.swift in Sources */,
 				163D97601DC8C5A000282F79 /* README.md in Sources */,
 				163D97701DC8FBD200282F79 /* KinopoiskGenres.swift in Sources */,
 				16F0B93B1DBA9DCA004ABD07 /* AppDelegate.swift in Sources */,
-				16E448531DC8C497000150F5 /* SwiftyJSON.swift in Sources */,
-				163D975C1DC8C53E00282F79 /* README.MD in Sources */,
 				163D97651DC8C85E00282F79 /* Client.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +376,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NN66A2H896;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = KinopoiskAPI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = IlyaGutnikovLLC.KinopoiskAPI;
@@ -402,6 +394,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NN66A2H896;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = KinopoiskAPI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = IlyaGutnikovLLC.KinopoiskAPI;
