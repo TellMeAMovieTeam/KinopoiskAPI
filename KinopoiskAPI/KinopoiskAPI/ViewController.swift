@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     @IBAction func getFilm(_ sender: AnyObject) {
         
-    var test = ""
+    /*var test = ""
         
       KinopoiskAPI.getFilm(filmID: 714888) { result in
             test = result
@@ -22,6 +22,9 @@ class ViewController: UIViewController {
         
     var test2 = KinopoiskAPI.resultVar
         print(test2)
+    */
+
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
