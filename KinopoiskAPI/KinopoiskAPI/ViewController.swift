@@ -10,6 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBAction func getCountry(_ sender: AnyObject) {
+        
+        KinopoiskCountry.getCountrys()
+    }
+    
     @IBAction func getGallery(_ sender: AnyObject) {
         
         KinopoiskGallery.getGallery(filmID: 714888)

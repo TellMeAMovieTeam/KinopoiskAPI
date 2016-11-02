@@ -20,3 +20,36 @@ public class Country {
     }
 
 }
+
+open class KinopoiskCountry {
+    
+    static var Countrys : [Country] = []
+    
+    public static func getCountrys() {
+        
+        let URL = "https://api.kinopoisk.cf/getCountryList"
+        
+        HTTPRequest.request(urlString: URL) { result in
+            let data = result
+            
+            // преобразовали данные из строки в JSON
+            let json = JSON(data: data.data!)
+            
+            // в цикле прходим по объектам genreData
+            // вместо _ можно поставить index
+            for (_,object):(String, JSON) in json["countryData"] {
+                
+                let countryID = object["countryID"].intValue
+                let countryName = object["countryName"].stringValue
+                
+                print("GenreID \(countryID)")
+                print("CountryName \(countryName)")
+                
+                Countrys.append(Country(CountryID : countryID, CountryName : countryName))
+            }
+            
+        }
+    
+    }
+
+}
