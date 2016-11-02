@@ -31,8 +31,8 @@ open class KinopoiskGenres {
                 let genreId = object["genreID"].intValue
                 let genreName = object["genreName"].stringValue
                 
-                print("GenreID \(genreId)")
-                print("GenreName \(genreName)")
+                //print("GenreID \(genreId)")
+                //print("GenreName \(genreName)")
                 
                 genres.append(Genre(GenreID : genreId, GenreName : genreName))
             }

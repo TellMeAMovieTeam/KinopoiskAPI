@@ -27,12 +27,22 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DwA-bj-9Ii">
-                                <frame key="frameInset" minX="8" minY="58" width="86" height="30"/>
+                                <frame key="frameInset" minX="8" minY="47" width="86" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="getGenres"/>
                                 <connections>
                                     <action selector="getFilm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ujY-a0-k8u"/>
                                     <action selector="getGenres:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TDe-LY-TZh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OrM-Fw-bnC">
+                                <frame key="frameInset" minX="8" minY="76" width="86" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="getGallery"/>
+                                <connections>
+                                    <action selector="getFilm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EOs-NB-l9G"/>
+                                    <action selector="getGallery:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RaC-Xi-bhw"/>
+                                    <action selector="getGenres:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0UE-Dc-YqH"/>
                                 </connections>
                             </button>
                         </subviews>

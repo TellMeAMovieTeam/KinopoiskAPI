@@ -22,9 +22,6 @@ open class KinopoiskFilm {
             let json = JSON(data: filmData.data!)
 
             ResultingFilm = Film(FilmData: json)
-            
-            print(ResultingFilm?.NameRU)
-            
         }
     }
     
@@ -34,7 +31,7 @@ open class KinopoiskFilm {
 /// Все данные о фильме
 public class Film {
     
-    var KinopoiskID : String!
+    var KinopoiskID : Int!
     var IMDB_ID : String!
     var WebURL : String = ""
     var NameRU : String = ""
@@ -52,7 +49,7 @@ public class Film {
     
     init(FilmData : JSON) {
         
-        self.KinopoiskID = FilmData["filmID"].stringValue
+        self.KinopoiskID = FilmData["filmID"].intValue
         self.IMDB_ID = FilmData["imdbID"].stringValue
         self.WebURL = FilmData["webURL"].stringValue
         self.NameRU = FilmData["nameRU"].stringValue
