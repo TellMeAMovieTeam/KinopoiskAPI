@@ -9,11 +9,29 @@
 import Foundation
 
 open class KinopoiskFilm {
+    
+    static var ResultingFilm : Film? = nil
+    
+    public static func getFilm(filmID: Int) {
+        
+        let getFilmURL = "https://api.kinopoisk.cf/getFilm?filmID=\(filmID)"
+        
+        HTTPRequest.request(urlString: getFilmURL) { result in
+           
+            let filmData = result
+            let json = JSON(data: filmData.data!)
 
-
+            ResultingFilm = Film(FilmData: json)
+            
+            print(ResultingFilm?.NameRU)
+            
+        }
+    }
+    
 }
 
 
+/// Все данные о фильме
 public class Film {
     
     var KinopoiskID : String!
@@ -61,14 +79,14 @@ public class Film {
 
 /// Описание рейтинга фильма
 public class FilmRating{
-
+    
     var RatingName : String
     var RatingValue : AnyObject
     
     init(RatingName : String, RatingValue : AnyObject) {
-    
+        
         self.RatingName = RatingName
         self.RatingValue = RatingValue
-    
+        
     }
 }

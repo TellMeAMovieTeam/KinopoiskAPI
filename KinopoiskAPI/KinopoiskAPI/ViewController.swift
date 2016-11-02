@@ -18,6 +18,8 @@ class ViewController: UIViewController {
 
     @IBAction func getFilm(_ sender: AnyObject) {
         
+        KinopoiskFilm.getFilm(filmID: 714888)
+        
     /*var test = ""
         
       KinopoiskAPI.getFilm(filmID: 714888) { result in
