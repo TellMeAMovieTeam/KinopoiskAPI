@@ -18,6 +18,8 @@ class HTTPRequest{
     /// - parameter completion: Для строки в которой хранится результат в виде JSON-объектов
     static func request(urlString: String, completion: @escaping (String) -> ()) {
         
+        //TODO: переделать escaping на структуру, состоящую из data, response, error
+        
         //преобразование строки в URL
         let url = URL(string: urlString)!
         

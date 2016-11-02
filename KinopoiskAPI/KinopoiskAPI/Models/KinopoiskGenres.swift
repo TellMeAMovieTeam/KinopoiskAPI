@@ -8,18 +8,20 @@
 
 import Foundation
 
+
+/// Получает информацию о жанрах
 open class KinopoiskGenres{
     
-    static var genres : String = ""
+    static var genres = [Genre]()
     
     public static func getGenres() {
         
         let getGenresURL = "https://api.kinopoisk.cf/getGenres"
         
         HTTPRequest.request(urlString: getGenresURL) { result in
-            genres = result
+            let genresJSON = result
             
-            if let dataFromString = genres.data(using: .utf8, allowLossyConversion: false) {
+            if let dataFromString = genresJSON.data(using: .utf8, allowLossyConversion: false) {
                 
                 // преобразовали данные из строки в JSON
                 let json = JSON(data: dataFromString)
@@ -33,13 +35,35 @@ open class KinopoiskGenres{
                     
                     print(genreId)
                     print(genreName)
+                    
+                    genres.append(Genre(GenreID : genreId, GenreName : genreName))
                 }
                 
-                
-                //let arrayNames =  json["genreData"].arrayValue.map({$0["genreName"].stringValue})
-                //print(arrayNames)
             }
         }
     }
+    
+}
+
+
+/// Класс, который хранит в себе информацию о жанре (ID и его имя)
+class Genre {
+
+    var GenreID : Int
+    var GenreName : String
+    
+    
+    /// Конструктор класса Genre
+    ///
+    /// - parameter GenreID:   ID жанра
+    /// - parameter GenreName: Описание жанра
+    ///
+    /// - returns: Экземпляр объекта Genre
+    init(GenreID : Int, GenreName : String) {
+        
+        self.GenreID = GenreID
+        self.GenreName = GenreName
+    }
+    
     
 }
