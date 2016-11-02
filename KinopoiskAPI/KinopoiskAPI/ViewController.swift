@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBAction func getGenres(_ sender: AnyObject) {
         
         KinopoiskGenres.getGenres()
-        print(KinopoiskGenres.genres)
+        //print(KinopoiskGenres.genres)
     }
 
     @IBAction func getFilm(_ sender: AnyObject) {

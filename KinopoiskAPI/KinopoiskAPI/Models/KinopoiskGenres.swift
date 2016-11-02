@@ -21,9 +21,23 @@ open class KinopoiskGenres{
             
             if let dataFromString = genres.data(using: .utf8, allowLossyConversion: false) {
                 
+                // преобразовали данные из строки в JSON
                 let json = JSON(data: dataFromString)
-                let arrayNames =  json["genreData"].arrayValue.map({$0["genreName"].stringValue})
-                print(arrayNames)
+                
+                // в цикле прходим по объектам genreData
+                // вместо _ можно поставить index
+                for (_,object):(String, JSON) in json["genreData"] {
+                    
+                    let genreId = object["genreID"].intValue
+                    let genreName = object["genreName"].stringValue
+                    
+                    print(genreId)
+                    print(genreName)
+                }
+                
+                
+                //let arrayNames =  json["genreData"].arrayValue.map({$0["genreName"].stringValue})
+                //print(arrayNames)
             }
         }
     }
