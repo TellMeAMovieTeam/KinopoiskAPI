@@ -19,27 +19,24 @@ open class KinopoiskGenres{
         let getGenresURL = "https://api.kinopoisk.cf/getGenres"
         
         HTTPRequest.request(urlString: getGenresURL) { result in
-            let genresJSON = result
+            let genresData = result
             
-            if let dataFromString = genresJSON.data(using: .utf8, allowLossyConversion: false) {
+            // преобразовали данные из строки в JSON
+            let json = JSON(data: genresData.data!)
+            
+            // в цикле прходим по объектам genreData
+            // вместо _ можно поставить index
+            for (_,object):(String, JSON) in json["genreData"] {
                 
-                // преобразовали данные из строки в JSON
-                let json = JSON(data: dataFromString)
+                let genreId = object["genreID"].intValue
+                let genreName = object["genreName"].stringValue
                 
-                // в цикле прходим по объектам genreData
-                // вместо _ можно поставить index
-                for (_,object):(String, JSON) in json["genreData"] {
-                    
-                    let genreId = object["genreID"].intValue
-                    let genreName = object["genreName"].stringValue
-                    
-                    print(genreId)
-                    print(genreName)
-                    
-                    genres.append(Genre(GenreID : genreId, GenreName : genreName))
-                }
+                print("GenreID \(genreId)")
+                print("GenreName \(genreName)")
                 
+                genres.append(Genre(GenreID : genreId, GenreName : genreName))
             }
+            
         }
     }
     
@@ -48,7 +45,7 @@ open class KinopoiskGenres{
 
 /// Класс, который хранит в себе информацию о жанре (ID и его имя)
 class Genre {
-
+    
     var GenreID : Int
     var GenreName : String
     
