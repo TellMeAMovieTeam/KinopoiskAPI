@@ -10,7 +10,7 @@ import Foundation
 
 
 /// Получает информацию о жанрах
-open class KinopoiskGenres{
+open class KinopoiskGenres {
     
     static var genres = [Genre]()
     
@@ -44,7 +44,7 @@ open class KinopoiskGenres{
 
 
 /// Класс, который хранит в себе информацию о жанре (ID и его имя)
-class Genre {
+public class Genre {
     
     var GenreID : Int
     var GenreName : String
