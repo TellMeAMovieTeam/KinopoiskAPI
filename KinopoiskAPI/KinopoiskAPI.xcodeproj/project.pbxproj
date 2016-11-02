@@ -14,6 +14,7 @@
 		163D97701DC8FBD200282F79 /* KinopoiskGenres.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163D976F1DC8FBD200282F79 /* KinopoiskGenres.swift */; };
 		164EBB841DC9E393004FFD94 /* KinopoiskFilm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164EBB831DC9E393004FFD94 /* KinopoiskFilm.swift */; };
 		164EBB861DCA0676004FFD94 /* KinopoiskGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164EBB851DCA0676004FFD94 /* KinopoiskGallery.swift */; };
+		164EBB881DCA18A6004FFD94 /* KinopoiskCountrys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164EBB871DCA18A6004FFD94 /* KinopoiskCountrys.swift */; };
 		16F0B93B1DBA9DCA004ABD07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F0B93A1DBA9DCA004ABD07 /* AppDelegate.swift */; };
 		16F0B93D1DBA9DCA004ABD07 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F0B93C1DBA9DCA004ABD07 /* ViewController.swift */; };
 		16F0B9401DBA9DCA004ABD07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16F0B93E1DBA9DCA004ABD07 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 		163D976F1DC8FBD200282F79 /* KinopoiskGenres.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KinopoiskGenres.swift; sourceTree = "<group>"; };
 		164EBB831DC9E393004FFD94 /* KinopoiskFilm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KinopoiskFilm.swift; sourceTree = "<group>"; };
 		164EBB851DCA0676004FFD94 /* KinopoiskGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KinopoiskGallery.swift; sourceTree = "<group>"; };
+		164EBB871DCA18A6004FFD94 /* KinopoiskCountrys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KinopoiskCountrys.swift; sourceTree = "<group>"; };
 		16F0B9371DBA9DCA004ABD07 /* KinopoiskAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KinopoiskAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16F0B93A1DBA9DCA004ABD07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16F0B93C1DBA9DCA004ABD07 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				163D976F1DC8FBD200282F79 /* KinopoiskGenres.swift */,
 				164EBB831DC9E393004FFD94 /* KinopoiskFilm.swift */,
 				164EBB851DCA0676004FFD94 /* KinopoiskGallery.swift */,
+				164EBB871DCA18A6004FFD94 /* KinopoiskCountrys.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				16F0B93D1DBA9DCA004ABD07 /* ViewController.swift in Sources */,
 				16302BD01DC9307000F35D0E /* SwiftyJSON.swift in Sources */,
 				163D97601DC8C5A000282F79 /* README.md in Sources */,
+				164EBB881DCA18A6004FFD94 /* KinopoiskCountrys.swift in Sources */,
 				163D97701DC8FBD200282F79 /* KinopoiskGenres.swift in Sources */,
 				16F0B93B1DBA9DCA004ABD07 /* AppDelegate.swift in Sources */,
 				163D97651DC8C85E00282F79 /* Client.swift in Sources */,
