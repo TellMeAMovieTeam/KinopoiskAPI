@@ -23,8 +23,11 @@ public class Country {
 
 open class KinopoiskCountry {
     
+    
+    /// Список стран
     static var Countrys : [Country] = []
     
+    /// Получает страны и помещает их в Country
     public static func getCountrys() {
         
         let URL = "https://api.kinopoisk.cf/getCountryList"
@@ -42,8 +45,8 @@ open class KinopoiskCountry {
                 let countryID = object["countryID"].intValue
                 let countryName = object["countryName"].stringValue
                 
-                print("CountryID \(countryID)")
-                print("CountryName \(countryName)")
+                /*print("CountryID \(countryID)")
+                print("CountryName \(countryName)")*/
                 
                 Countrys.append(Country(CountryID : countryID, CountryName : countryName))
             }

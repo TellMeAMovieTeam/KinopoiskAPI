@@ -12,8 +12,10 @@ import Foundation
 /// Получает информацию о жанрах
 open class KinopoiskGenres {
     
+    /// Жанры
     static var genres = [Genre]()
     
+    /// Получает список жанров и помещает их в genres
     public static func getGenres() {
         
         let getGenresURL = "https://api.kinopoisk.cf/getGenres"

@@ -12,6 +12,10 @@ open class KinopoiskFilm {
     
     static var ResultingFilm : Film? = nil
     
+    
+    /// Получает фильм по указаному ID и помещает информацию о фильме в ResultingFilm
+    ///
+    /// - parameter filmID: ID фильма
     public static func getFilm(filmID: Int) {
         
         let getFilmURL = "https://api.kinopoisk.cf/getFilm?filmID=\(filmID)"

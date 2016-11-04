@@ -42,10 +42,18 @@ public class SimpleFilm {
 }
 
 open class KinopoiskSearchFilms {
-
+    
+    
+    /// Найденные фильмы
     public static var FoundFilms : [SimpleFilm] = []
+    
+    /// Количество страниц выдачи
     public static var pagesCount : Int = 0
     
+    
+    /// Получает список найденных фильмов по ключевому слову. Найденные фильмы помещает в FoundFilms
+    ///
+    /// - parameter Keyword: Ключевое слово для поиска
     public static func searchFilm(Keyword : String) {
     
         let escapedKeyword = Keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
@@ -74,10 +82,66 @@ open class KinopoiskSearchFilms {
                 
             }
             
+        }
+    }
+    
+    
+    /// Получает список найденных фильмов по ключевому слову. Найденные фильмы помещает в FoundFilms
+    ///
+    /// - parameter Keyword: Ключевое слово для поиска
+    /// - parameter Page:    Страница выдачи
+    public static func searchFilm(Keyword : String, Page : Int) {
+        
+        let escapedKeyword = Keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        
+        let URL = "https://api.kinopoisk.cf/searchFilms?keyword=\(escapedKeyword)&page=\(Page)"
+        
+        HTTPRequest.request(urlString: URL) { result in
             
+            let data = result
+            let json = JSON(data: data.data!)
+            
+            //print(json)
+            
+            pagesCount = json["pagesCount"].intValue
+            
+            //print(pagesCount)
+            
+            for (_,object):(String, JSON) in json["searchFilms"] {
+                
+                //let filmID = object["id"].intValue
+                //let filmNameRU = object["nameRU"].stringValue
+                //print("filmID \(filmID)")
+                //print("filmNameRU \(filmNameRU)")
+                
+                FoundFilms.append(SimpleFilm(FilmData: object))
+                
+            }
             
         }
     }
-
+    
+    
+    /// Получает количество страниц фильмов с найденным ключевым словом
+    ///
+    /// - parameter Keyword: Ключевое слово для поиска
+    public static func getSearchPages(Keyword : String) {
+        
+        let escapedKeyword = Keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        
+        let URL = "https://api.kinopoisk.cf/searchFilms?keyword=\(escapedKeyword)"
+        
+        HTTPRequest.request(urlString: URL) { result in
+            
+            let data = result
+            let json = JSON(data: data.data!)
+            
+            //print(json)
+            
+            pagesCount = json["pagesCount"].intValue
+        }
+    }
+    
+    
 }
 

@@ -26,11 +26,21 @@ public class GalleryImage {
 
 
 open class KinopoiskGallery {
-
+    
+    
+    /// Простая галлерея
     public static var Gallery : [GalleryImage] = []
+    
+    /// <#Description#>
     public static var Gallery_SP : [GalleryImage] = []
+    
+    /// Галлерея постеров
     public static var Posters : [GalleryImage] = []
     
+    
+    /// Получает галлереи для фильма по его ID
+    ///
+    /// - parameter filmID: ID фильма
     public static func getGallery(filmID : Int) {
         
         let getGalleryURL = "https://api.kinopoisk.cf/getGallery?filmID=\(filmID)"
