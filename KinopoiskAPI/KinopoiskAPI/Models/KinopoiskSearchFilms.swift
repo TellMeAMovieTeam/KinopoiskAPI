@@ -47,6 +47,7 @@ open class KinopoiskSearchFilms {
     /// Найденные фильмы
     public static var FoundFilms : [SimpleFilm] = []
     
+    
     /// Количество страниц выдачи
     public static var pagesCount : Int = 0
     

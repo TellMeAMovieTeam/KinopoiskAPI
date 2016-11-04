@@ -11,7 +11,7 @@ import Foundation
 open class KinopoiskGetPoster {
     
     
-    /// Данные с постером
+    /// Информация о постере
     public static var posterImageData : Data? = nil
     
     

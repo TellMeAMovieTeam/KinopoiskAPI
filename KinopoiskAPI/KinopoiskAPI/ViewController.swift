@@ -10,6 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBAction func getStaff(_ sender: AnyObject) {
+        
+        KinopoiskStaff.getStaff(filmID: 714888)
+        print(KinopoiskStaff.Staff.count)
+        
+    }
     @IBAction func searchFilms(_ sender: AnyObject) {
         
         KinopoiskSearchFilms.searchFilm(Keyword: "Звездные")

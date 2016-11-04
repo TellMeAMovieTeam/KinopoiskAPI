@@ -58,6 +58,14 @@
                                     <action selector="searchFilms:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lnb-lY-6qo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="inR-MT-0uu">
+                                <frame key="frameInset" minX="7" minY="162" width="56" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="getStaff"/>
+                                <connections>
+                                    <action selector="getStaff:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vm8-yz-Sgh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
