@@ -25,23 +25,26 @@ class ViewController: UIViewController {
     @IBAction func getCountry(_ sender: AnyObject) {
         
         KinopoiskCountry.getCountrys()
+        print(KinopoiskCountry.Countrys)
     }
     
     @IBAction func getGallery(_ sender: AnyObject) {
         
         KinopoiskGallery.getGallery(filmID: 714888)
+        print(KinopoiskGallery.Gallery)
     }
     
     @IBAction func getGenres(_ sender: AnyObject) {
         
         KinopoiskGenres.getGenres()
-        //print(KinopoiskGenres.genres)
+        print(KinopoiskGenres.genres)
     }
 
     @IBAction func getFilm(_ sender: AnyObject) {
         
         KinopoiskFilm.getFilm(filmID: 714888)
         print(KinopoiskFilm.ResultingFilm?.PosterURL)
+        print(KinopoiskFilm.ResultingFilm?.NameEN)
         
     /*var test = ""
         
