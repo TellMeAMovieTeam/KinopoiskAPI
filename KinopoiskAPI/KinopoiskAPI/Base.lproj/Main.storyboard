@@ -31,7 +31,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="getGenres"/>
                                 <connections>
-                                    <action selector="getFilm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ujY-a0-k8u"/>
                                     <action selector="getGenres:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TDe-LY-TZh"/>
                                 </connections>
                             </button>
@@ -40,9 +39,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="getGallery"/>
                                 <connections>
-                                    <action selector="getFilm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EOs-NB-l9G"/>
-                                    <action selector="getGallery:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RaC-Xi-bhw"/>
-                                    <action selector="getGenres:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0UE-Dc-YqH"/>
+                                    <action selector="getGallery:" destination="dkx-z0-nzr" eventType="touchUpInside" id="HiR-h9-uUz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFb-UM-kVm">
@@ -50,10 +47,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="getCountry"/>
                                 <connections>
-                                    <action selector="getCountry:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cLC-cw-LGb"/>
-                                    <action selector="getFilm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rQv-O4-T9l"/>
-                                    <action selector="getGallery:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lJP-aL-Q9M"/>
-                                    <action selector="getGenres:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O9J-of-fdy"/>
+                                    <action selector="getCountry:" destination="dkx-z0-nzr" eventType="touchUpInside" id="OqR-1o-IeE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLL-Zz-Odp">
+                                <frame key="frameInset" minX="7" minY="132" width="86" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="searchFilms"/>
+                                <connections>
+                                    <action selector="searchFilms:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lnb-lY-6qo"/>
                                 </connections>
                             </button>
                         </subviews>

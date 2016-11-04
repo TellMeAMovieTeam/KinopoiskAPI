@@ -10,6 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBAction func searchFilms(_ sender: AnyObject) {
+        
+        KinopoiskSearchFilms.searchFilm(Keyword: "Star")
+        print(KinopoiskSearchFilms.pagesCount)
+    }
+    
     @IBAction func getCountry(_ sender: AnyObject) {
         
         KinopoiskCountry.getCountrys()
@@ -29,6 +35,7 @@ class ViewController: UIViewController {
     @IBAction func getFilm(_ sender: AnyObject) {
         
         KinopoiskFilm.getFilm(filmID: 714888)
+        print(KinopoiskFilm.ResultingFilm?.PosterURL)
         
     /*var test = ""
         

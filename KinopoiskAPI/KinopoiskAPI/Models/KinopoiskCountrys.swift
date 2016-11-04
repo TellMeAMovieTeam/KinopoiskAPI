@@ -42,7 +42,7 @@ open class KinopoiskCountry {
                 let countryID = object["countryID"].intValue
                 let countryName = object["countryName"].stringValue
                 
-                print("GenreID \(countryID)")
+                print("CountryID \(countryID)")
                 print("CountryName \(countryName)")
                 
                 Countrys.append(Country(CountryID : countryID, CountryName : countryName))

@@ -49,6 +49,8 @@ public class Film {
     
     init(FilmData : JSON) {
         
+        //TODO возможно добавить хранилку кадров
+        
         self.KinopoiskID = FilmData["filmID"].intValue
         self.IMDB_ID = FilmData["imdbID"].stringValue
         self.WebURL = FilmData["webURL"].stringValue
