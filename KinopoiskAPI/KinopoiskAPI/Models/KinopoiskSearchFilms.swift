@@ -48,28 +48,27 @@ open class KinopoiskSearchFilms {
     
     public static func searchFilm(Keyword : String) {
     
-        let escapedKeyword = Keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let escapedKeyword = Keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         
-        let URL = "https://api.kinopoisk.cf/searchFilms?keyword=\(Keyword)"
+        let URL = "https://api.kinopoisk.cf/searchFilms?keyword=\(escapedKeyword)"
         
         HTTPRequest.request(urlString: URL) { result in
             
             let data = result
             let json = JSON(data: data.data!)
             
-            print(json)
+            //print(json)
             
             pagesCount = json["pagesCount"].intValue
             
-            print(pagesCount)
+            //print(pagesCount)
             
             for (_,object):(String, JSON) in json["searchFilms"] {
                 
-                let filmID = object["id"].intValue
-                let filmNameRU = object["nameRU"].stringValue
-                
-                print("filmID \(filmID)")
-                print("filmNameRU \(filmNameRU)")
+                //let filmID = object["id"].intValue
+                //let filmNameRU = object["nameRU"].stringValue
+                //print("filmID \(filmID)")
+                //print("filmNameRU \(filmNameRU)")
                 
                 FoundFilms.append(SimpleFilm(FilmData: object))
                 

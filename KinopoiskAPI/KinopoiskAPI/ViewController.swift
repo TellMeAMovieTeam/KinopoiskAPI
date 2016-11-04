@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     @IBAction func searchFilms(_ sender: AnyObject) {
         
-        KinopoiskSearchFilms.searchFilm(Keyword: "Star")
+        KinopoiskSearchFilms.searchFilm(Keyword: "Звездные")
         print(KinopoiskSearchFilms.pagesCount)
     }
     
