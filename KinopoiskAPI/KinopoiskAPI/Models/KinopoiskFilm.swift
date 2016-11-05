@@ -49,6 +49,9 @@ public class Film {
     var RatingMPAA : String = ""
     var AgeLimits : Int = 0
     var RatingData : [FilmRating] = []
+    var Staff : [AnyObject] = []
+    
+    private var Category : [KPPerson] = []
     
     init(FilmData : JSON) {
         
@@ -75,9 +78,21 @@ public class Film {
         self.RatingData.append(FilmRating(RatingName: "ratingKPVoteCount", RatingValue: MovieRatings["ratingVoteCount"].intValue as AnyObject))
         self.RatingData.append(FilmRating(RatingName: "ratingIMDb", RatingValue: MovieRatings["ratingIMDb"].floatValue as AnyObject))
         self.RatingData.append(FilmRating(RatingName: "ratingIMDbVoteCount", RatingValue: MovieRatings["ratingIMDbVoteCount"].intValue as AnyObject))
+        
+        // очень ужатая информация
+        //зашли в "создатели"
+        for (_,category):(String, JSON) in FilmData["creators"] {
+            //зашли в категорию
+            for (_,object):(String, JSON) in category {
+                
+                Category.append(KPPerson(PersonData: object))
+                //print(object["nameEN"].stringValue)
+            }
+            
+            self.Staff.append(Category as AnyObject)
+        }
     }
 }
-
 
 /// Описание рейтинга фильма
 public class FilmRating{
