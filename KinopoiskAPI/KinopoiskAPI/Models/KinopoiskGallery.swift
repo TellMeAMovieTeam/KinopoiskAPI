@@ -12,15 +12,15 @@ import Foundation
 /// Данные об одном кадре фильма
 public class GalleryImage {
 
-    var ImageURL : String = ""
-    var ImagePreviewURL : String = ""
-    var SocialURL : String = ""
+    var imageURL : String = ""
+    var imagePreviewURL : String = ""
+    var socialURL : String = ""
     
-    init(ImageURL : String, ImagePreviewURL :  String, SocialURL : String) {
+    init(imageURL : String, imagePreviewURL :  String, socialURL : String) {
         
-        self.ImageURL = ImageURL
-        self.ImagePreviewURL = ImagePreviewURL
-        self.SocialURL = SocialURL
+        self.imageURL = imageURL
+        self.imagePreviewURL = imagePreviewURL
+        self.socialURL = socialURL
     }
 }
 
@@ -29,13 +29,13 @@ open class KinopoiskGallery {
     
     
     /// Простая галлерея
-    public static var Gallery : [GalleryImage] = []
+    public static var gallery : [GalleryImage] = []
     
     /// <#Description#>
-    public static var Gallery_SP : [GalleryImage] = []
+    public static var gallery_SP : [GalleryImage] = []
     
     /// Галлерея постеров
-    public static var Posters : [GalleryImage] = []
+    public static var posters : [GalleryImage] = []
     
     
     /// Получает галлереи для фильма по его ID
@@ -50,11 +50,11 @@ open class KinopoiskGallery {
             let galleryData = result
             let json = JSON(data: galleryData.data!)
             
-            let gallery = json["gallery"]
+            let galleryJSON = json["gallery"]
             //print (gallery)
             
             //получаем кадры
-            for (_,object):(String, JSON) in gallery["kadr"] {
+            for (_,object):(String, JSON) in galleryJSON["kadr"] {
                 
                 let _imageURL = object["image"].stringValue
                 let _previewURL = object["preview"].stringValue
@@ -64,11 +64,11 @@ open class KinopoiskGallery {
                 //print("PreviewURL: \(_previewURL)")
                 //print("SocialURL: \(_socialURL)")
                 
-                Gallery.append(GalleryImage(ImageURL: _imageURL, ImagePreviewURL: _previewURL, SocialURL: _socialURL))
+                gallery.append(GalleryImage(imageURL: _imageURL, imagePreviewURL: _previewURL, socialURL: _socialURL))
             }
             
             //получаем кадры_SP
-            for (_,object):(String, JSON) in gallery["kadr_sp"] {
+            for (_,object):(String, JSON) in galleryJSON["kadr_sp"] {
                 
                 let _imageURL = object["image"].stringValue
                 let _previewURL = object["preview"].stringValue
@@ -78,11 +78,11 @@ open class KinopoiskGallery {
                 //print("PreviewURL: \(_previewURL)")
                 //print("SocialURL: \(_socialURL)")
                 
-                Gallery_SP.append(GalleryImage(ImageURL: _imageURL, ImagePreviewURL: _previewURL, SocialURL: _socialURL))
+                gallery_SP.append(GalleryImage(imageURL: _imageURL, imagePreviewURL: _previewURL, socialURL: _socialURL))
             }
             
             //получаем постеры
-            for (_,object):(String, JSON) in gallery["poster"] {
+            for (_,object):(String, JSON) in galleryJSON["poster"] {
                 
                 let _imageURL = object["image"].stringValue
                 let _previewURL = object["preview"].stringValue
@@ -92,7 +92,7 @@ open class KinopoiskGallery {
                 //print("PreviewURL: \(_previewURL)")
                 //print("SocialURL: \(_socialURL)")
                 
-                Posters.append(GalleryImage(ImageURL: _imageURL, ImagePreviewURL: _previewURL, SocialURL: _socialURL))
+                posters.append(GalleryImage(imageURL: _imageURL, imagePreviewURL: _previewURL, socialURL: _socialURL))
             }
             
         }

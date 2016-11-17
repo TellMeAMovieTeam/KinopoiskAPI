@@ -10,8 +10,8 @@ import Foundation
 
 open class KinopoiskStaff {
 
-    public static var Staff : [AnyObject] = []
-    private static var Category : [KPPerson] = []
+    public static var staff : [AnyObject] = []
+    private static var category : [KPPerson] = []
     
     public static func getStaff(filmID : Int) {
         
@@ -24,15 +24,15 @@ open class KinopoiskStaff {
             
             //print(json)
             //зашли в "создатели"
-            for (_,category):(String, JSON) in json["creators"] {
+            for (_,categoryJSON):(String, JSON) in json["creators"] {
                 //зашли в категорию
-                for (_,object):(String, JSON) in category {
+                for (_,object):(String, JSON) in categoryJSON {
                     
-                    Category.append(KPPerson(PersonData: object))
+                    category.append(KPPerson(personData: object))
                     //print(object["nameEN"].stringValue)
                 }
                 
-                Staff.append(Category as AnyObject)
+                staff.append(category as AnyObject)
             }
             
         }
@@ -46,24 +46,24 @@ open class KinopoiskStaff {
 public class KPPerson {
 
     var id : Int = 0
-    var KPType : String = ""
-    var NameRU : String = ""
-    var NameEN : String = ""
-    var PosterURL : String = ""
-    var ProfessionText : String = ""
-    var ProfessionKey : String = ""
-    var Description : String = ""
+    var kpType : String = ""
+    var nameRU : String = ""
+    var nameEN : String = ""
+    var posterURL : String = ""
+    var professionText : String = ""
+    var professionKey : String = ""
+    var description : String = ""
 
-    init(PersonData : JSON) {
+    init(personData : JSON) {
         
-        self.id = PersonData["id"].intValue
-        self.KPType = PersonData["type"].stringValue
-        self.NameRU = PersonData["nameRU"].stringValue
-        self.NameEN = PersonData["nameEN"].stringValue
-        self.PosterURL = PersonData["posterURL"].stringValue
-        self.ProfessionText = PersonData["professionText"].stringValue
-        self.ProfessionKey = PersonData["professionKey"].stringValue
-        self.Description = PersonData["description"].stringValue
+        self.id = personData["id"].intValue
+        self.kpType = personData["type"].stringValue
+        self.nameRU = personData["nameRU"].stringValue
+        self.nameEN = personData["nameEN"].stringValue
+        self.posterURL = personData["posterURL"].stringValue
+        self.professionText = personData["professionText"].stringValue
+        self.professionKey = personData["professionKey"].stringValue
+        self.description = personData["description"].stringValue
         
     }
 }

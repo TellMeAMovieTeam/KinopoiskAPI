@@ -10,13 +10,13 @@ import Foundation
 
 public class Country {
 
-    var CountryID : Int = 0
-    var CountryName : String = ""
+    var countryID : Int = 0
+    var countryName : String = ""
     
-    init(CountryID : Int, CountryName : String) {
+    init(countryID : Int, countryName : String) {
         
-        self.CountryID = CountryID
-        self.CountryName = CountryName
+        self.countryID = countryID
+        self.countryName = countryName
     }
 
 }
@@ -25,7 +25,7 @@ open class KinopoiskCountry {
     
     
     /// Список стран
-    static var Countrys : [Country] = []
+    static var countrys : [Country] = []
     
     /// Получает страны и помещает их в Country
     public static func getCountrys() {
@@ -48,7 +48,7 @@ open class KinopoiskCountry {
                 /*print("CountryID \(countryID)")
                 print("CountryName \(countryName)")*/
                 
-                Countrys.append(Country(CountryID : countryID, CountryName : countryName))
+                countrys.append(Country(countryID : countryID, countryName : countryName))
             }
             
         }

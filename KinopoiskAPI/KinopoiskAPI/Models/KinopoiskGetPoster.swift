@@ -54,7 +54,7 @@ open class KinopoiskGetPoster {
         
         KinopoiskFilm.getFilm(filmID: filmID)
         
-        let URL = "https://st.kinopoisk.ru/images/\(KinopoiskFilm.ResultingFilm?.PosterURL)&width=\(posterWidth)&purge=true"
+        let URL = "https://st.kinopoisk.ru/images/\(KinopoiskFilm.resultingFilm?.posterURL)&width=\(posterWidth)&purge=true"
         
         HTTPRequest.request(urlString: URL) { result in
             
@@ -72,7 +72,7 @@ open class KinopoiskGetPoster {
         
         KinopoiskFilm.getFilm(filmID: filmID)
         
-        let URL = "https://st.kinopoisk.ru/images/\(KinopoiskFilm.ResultingFilm?.PosterURL)&width=360&purge=true"
+        let URL = "https://st.kinopoisk.ru/images/\(KinopoiskFilm.resultingFilm?.posterURL)&width=360&purge=true"
         
         HTTPRequest.request(urlString: URL) { result in
             

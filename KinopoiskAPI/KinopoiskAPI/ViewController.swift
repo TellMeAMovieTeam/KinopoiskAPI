@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBAction func getStaff(_ sender: AnyObject) {
         
         KinopoiskStaff.getStaff(filmID: 714888)
-        print(KinopoiskStaff.Staff.count)
+        print(KinopoiskStaff.staff.count)
         
     }
     @IBAction func searchFilms(_ sender: AnyObject) {
@@ -25,13 +25,13 @@ class ViewController: UIViewController {
     @IBAction func getCountry(_ sender: AnyObject) {
         
         KinopoiskCountry.getCountrys()
-        print(KinopoiskCountry.Countrys)
+        print(KinopoiskCountry.countrys)
     }
     
     @IBAction func getGallery(_ sender: AnyObject) {
         
         KinopoiskGallery.getGallery(filmID: 714888)
-        print(KinopoiskGallery.Gallery)
+        print(KinopoiskGallery.gallery)
     }
     
     @IBAction func getGenres(_ sender: AnyObject) {
@@ -43,8 +43,9 @@ class ViewController: UIViewController {
     @IBAction func getFilm(_ sender: AnyObject) {
         
         KinopoiskFilm.getFilm(filmID: 714888)
-        print(KinopoiskFilm.ResultingFilm?.PosterURL)
-        print(KinopoiskFilm.ResultingFilm?.NameEN)
+        print(KinopoiskFilm.resultingFilm?.posterURL)
+        print(KinopoiskFilm.resultingFilm?.nameEN)
+        print(KinopoiskFilm.resultingFilm?.description)
         
     /*var test = ""
         

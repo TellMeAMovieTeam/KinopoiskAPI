@@ -36,7 +36,7 @@ open class KinopoiskGenres {
                 //print("GenreID \(genreId)")
                 //print("GenreName \(genreName)")
                 
-                genres.append(Genre(GenreID : genreId, GenreName : genreName))
+                genres.append(Genre(genreID : genreId, genreName : genreName))
             }
             
         }
@@ -48,8 +48,8 @@ open class KinopoiskGenres {
 /// Класс, который хранит в себе информацию о жанре (ID и его имя)
 public class Genre {
     
-    var GenreID : Int
-    var GenreName : String
+    var genreID : Int
+    var genreName : String
     
     
     /// Конструктор класса Genre
@@ -58,10 +58,10 @@ public class Genre {
     /// - parameter GenreName: Описание жанра
     ///
     /// - returns: Экземпляр объекта Genre
-    init(GenreID : Int, GenreName : String) {
+    init(genreID : Int, genreName : String) {
         
-        self.GenreID = GenreID
-        self.GenreName = GenreName
+        self.genreID = genreID
+        self.genreName = genreName
     }
     
     

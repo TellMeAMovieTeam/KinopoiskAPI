@@ -12,31 +12,31 @@ import Foundation
 /// класса Film - меньше информации
 public class SimpleFilm {
     
-    var KinopoiskID : Int!
-    var KPType : String = ""
-    var NameRU : String = ""
-    var NameEN : String = ""
-    var PosterURL : String = ""
-    var Year : Int = 0
-    var FilmLength : String = ""
-    var Country : String = ""
-    var Genre : String = ""
-    var Description : String = ""
-    var Rating : String = ""
+    var kinopoiskID : Int!
+    var kpType : String = ""
+    var nameRU : String = ""
+    var nameEN : String = ""
+    var posterURL : String = ""
+    var year : Int = 0
+    var filmLength : String = ""
+    var country : String = ""
+    var genre : String = ""
+    var description : String = ""
+    var rating : String = ""
     
-    init(FilmData : JSON) {
+    init(filmData : JSON) {
     
-        self.KinopoiskID = FilmData["id"].intValue
-        self.KPType = FilmData["type"].stringValue
-        self.NameRU = FilmData["nameRU"].stringValue
-        self.NameEN = FilmData["nameEN"].stringValue
-        self.Description = FilmData["description"].stringValue
-        self.PosterURL = FilmData["posterURL"].stringValue
-        self.FilmLength = FilmData["filmLength"].stringValue
-        self.Year = FilmData["year"].intValue
-        self.Country = FilmData["country"].stringValue
-        self.Genre = FilmData["genre"].stringValue
-        self.Rating = FilmData["rating"].stringValue
+        self.kinopoiskID = filmData["id"].intValue
+        self.kpType = filmData["type"].stringValue
+        self.nameRU = filmData["nameRU"].stringValue
+        self.nameEN = filmData["nameEN"].stringValue
+        self.description = filmData["description"].stringValue
+        self.posterURL = filmData["posterURL"].stringValue
+        self.filmLength = filmData["filmLength"].stringValue
+        self.year = filmData["year"].intValue
+        self.country = filmData["country"].stringValue
+        self.genre = filmData["genre"].stringValue
+        self.rating = filmData["rating"].stringValue
     }
 
 }
@@ -45,7 +45,7 @@ open class KinopoiskSearchFilms {
     
     
     /// Найденные фильмы
-    public static var FoundFilms : [SimpleFilm] = []
+    public static var foundFilms : [SimpleFilm] = []
     
     
     /// Количество страниц выдачи
@@ -79,7 +79,7 @@ open class KinopoiskSearchFilms {
                 //print("filmID \(filmID)")
                 //print("filmNameRU \(filmNameRU)")
                 
-                FoundFilms.append(SimpleFilm(FilmData: object))
+                foundFilms.append(SimpleFilm(filmData: object))
                 
             }
             
@@ -115,7 +115,7 @@ open class KinopoiskSearchFilms {
                 //print("filmID \(filmID)")
                 //print("filmNameRU \(filmNameRU)")
                 
-                FoundFilms.append(SimpleFilm(FilmData: object))
+                foundFilms.append(SimpleFilm(filmData: object))
                 
             }
             

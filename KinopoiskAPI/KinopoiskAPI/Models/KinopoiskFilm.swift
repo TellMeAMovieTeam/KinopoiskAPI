@@ -10,7 +10,7 @@ import Foundation
 
 open class KinopoiskFilm {
     
-    static var ResultingFilm : Film? = nil
+    static var resultingFilm : Film? = nil
     
     /// Получает фильм по указаному ID и помещает информацию о фильме в ResultingFilm
     ///
@@ -24,7 +24,7 @@ open class KinopoiskFilm {
             let filmData = result
             let json = JSON(data: filmData.data!)
 
-            ResultingFilm = Film(FilmData: json)
+            resultingFilm = Film(filmData: json)
         }
     }
     
@@ -34,62 +34,64 @@ open class KinopoiskFilm {
 /// Все данные о фильме
 public class Film {
     
-    var KinopoiskID : Int!
-    var IMDB_ID : String!
-    var WebURL : String = ""
-    var NameRU : String = ""
-    var NameEN : String = ""
-    var PosterURL : String = ""
-    var Year : Int = 0
-    var FilmLength : String = ""
-    var Country : String = ""
-    var Genre : String = ""
-    var Slogan : String = ""
-    var Description : String = ""
-    var RatingMPAA : String = ""
-    var AgeLimits : Int = 0
-    var RatingData : [FilmRating] = []
-    var Staff : [AnyObject] = []
+    var kinopoiskID : Int!
+    var imdb_ID : String!
+    var webURL : String = ""
+    var nameRU : String = ""
+    var nameEN : String = ""
+    var posterURL : String = ""
+    var year : Int = 0
+    var filmLength : String = ""
+    var country : String = ""
+    var genre : String = ""
+    var slogan : String = ""
+    var description : String = ""
+    var ratingMPAA : String = ""
+    var ageLimits : Int = 0
+    var ratingData : [FilmRating] = []
+    var staff : [AnyObject] = []
     
-    private var Category : [KPPerson] = []
+    private var category : [KPPerson] = []
     
-    init(FilmData : JSON) {
+    init(filmData : JSON) {
+        
+        // Gloss
         
         //TODO возможно добавить хранилку кадров
         
-        self.KinopoiskID = FilmData["filmID"].intValue
-        self.IMDB_ID = FilmData["imdbID"].stringValue
-        self.WebURL = FilmData["webURL"].stringValue
-        self.NameRU = FilmData["nameRU"].stringValue
-        self.NameEN = FilmData["nameEN"].stringValue
-        self.PosterURL = FilmData["posterURL"].stringValue
-        self.Year = FilmData["year"].intValue
-        self.FilmLength = FilmData["filmLength"].stringValue
-        self.Country = FilmData["country"].stringValue
-        self.Genre = FilmData["genre"].stringValue
-        self.Slogan = FilmData["slogan"].stringValue
-        self.Description = FilmData["description"].stringValue
-        self.RatingMPAA = FilmData["ratingMPAA"].stringValue
-        self.AgeLimits = FilmData["ratingAgeLimits"].intValue
+        self.kinopoiskID = filmData["filmID"].intValue
+        self.imdb_ID = filmData["imdbID"].stringValue
+        self.webURL = filmData["webURL"].stringValue
+        self.nameRU = filmData["nameRU"].stringValue
+        self.nameEN = filmData["nameEN"].stringValue
+        self.posterURL = filmData["posterURL"].stringValue
+        self.year = filmData["year"].intValue
+        self.filmLength = filmData["filmLength"].stringValue
+        self.country = filmData["country"].stringValue
+        self.genre = filmData["genre"].stringValue
+        self.slogan = filmData["slogan"].stringValue
+        self.description = filmData["description"].stringValue
+        self.ratingMPAA = filmData["ratingMPAA"].stringValue
+        self.ageLimits = filmData["ratingAgeLimits"].intValue
         
-        let MovieRatings = FilmData["ratingData"]
+        let MovieRatings = filmData["ratingData"]
         
-        self.RatingData.append(FilmRating(RatingName: "ratingKP", RatingValue: MovieRatings["rating"].floatValue as AnyObject))
-        self.RatingData.append(FilmRating(RatingName: "ratingKPVoteCount", RatingValue: MovieRatings["ratingVoteCount"].intValue as AnyObject))
-        self.RatingData.append(FilmRating(RatingName: "ratingIMDb", RatingValue: MovieRatings["ratingIMDb"].floatValue as AnyObject))
-        self.RatingData.append(FilmRating(RatingName: "ratingIMDbVoteCount", RatingValue: MovieRatings["ratingIMDbVoteCount"].intValue as AnyObject))
+        self.ratingData.append(FilmRating(ratingName: "ratingKP", ratingValue: MovieRatings["rating"].floatValue as AnyObject))
+        self.ratingData.append(FilmRating(ratingName: "ratingKPVoteCount", ratingValue: MovieRatings["ratingVoteCount"].intValue as AnyObject))
+        self.ratingData.append(FilmRating(ratingName: "ratingIMDb", ratingValue: MovieRatings["ratingIMDb"].floatValue as AnyObject))
+        self.ratingData.append(FilmRating(ratingName: "ratingIMDbVoteCount", ratingValue: MovieRatings["ratingIMDbVoteCount"].intValue as AnyObject))
         
         // очень ужатая информация
         //зашли в "создатели"
-        for (_,category):(String, JSON) in FilmData["creators"] {
+        for (_,categoryJSON):(String, JSON) in filmData["creators"] {
             //зашли в категорию
-            for (_,object):(String, JSON) in category {
+            for (_,object):(String, JSON) in categoryJSON {
                 
-                Category.append(KPPerson(PersonData: object))
+                category.append(KPPerson(personData: object))
                 //print(object["nameEN"].stringValue)
             }
             
-            self.Staff.append(Category as AnyObject)
+            self.staff.append(category as AnyObject)
         }
     }
 }
@@ -97,13 +99,13 @@ public class Film {
 /// Описание рейтинга фильма
 public class FilmRating{
     
-    var RatingName : String
-    var RatingValue : AnyObject
+    var ratingName : String
+    var ratingValue : AnyObject
     
-    init(RatingName : String, RatingValue : AnyObject) {
+    init(ratingName : String, ratingValue : AnyObject) {
         
-        self.RatingName = RatingName
-        self.RatingValue = RatingValue
+        self.ratingName = ratingName
+        self.ratingValue = ratingValue
         
     }
 }
