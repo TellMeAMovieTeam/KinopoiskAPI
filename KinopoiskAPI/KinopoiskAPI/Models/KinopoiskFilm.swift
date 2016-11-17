@@ -8,16 +8,17 @@
 
 import Foundation
 
-open class KinopoiskFilm {
+class KinopoiskFilm {
     
-    static var resultingFilm : Film? = nil
+    public static var resultingFilm : Film? = nil
     
     /// Получает фильм по указаному ID и помещает информацию о фильме в ResultingFilm
     ///
     /// - parameter filmID: ID фильма
-    public static func getFilm(filmID: Int) {
+    public static func getFilm(filmID: Int, completion: @escaping(Film) -> ()) {
         
         let getFilmURL = "https://api.kinopoisk.cf/getFilm?filmID=\(filmID)"
+        var cReturn = ClientReturn()
         
         HTTPRequest.request(urlString: getFilmURL) { result in
            
@@ -25,7 +26,12 @@ open class KinopoiskFilm {
             let json = JSON(data: filmData.data!)
 
             resultingFilm = Film(filmData: json)
+            
+            print("In resulting film: " + (resultingFilm?.nameEN)!)
+            
+            completion(resultingFilm!)
         }
+        
     }
     
 }
@@ -53,7 +59,7 @@ public class Film {
     
     private var category : [KPPerson] = []
     
-    init(filmData : JSON) {
+    public init(filmData : JSON) {
         
         // Gloss
         

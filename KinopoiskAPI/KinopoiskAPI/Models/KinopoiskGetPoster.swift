@@ -52,7 +52,7 @@ open class KinopoiskGetPoster {
     /// - parameter posterWidth: Ширина постера (стандартное значение 360)
     public static func getPosterImage(filmID : Int, posterWidth : Int) {
         
-        KinopoiskFilm.getFilm(filmID: filmID)
+        /*KinopoiskFilm.getFilm(filmID: filmID)
         
         let URL = "https://st.kinopoisk.ru/images/\(KinopoiskFilm.resultingFilm?.posterURL)&width=\(posterWidth)&purge=true"
         
@@ -61,7 +61,7 @@ open class KinopoiskGetPoster {
             let data = result
             posterImageData = data.data
         }
-        
+        */
     }
     
     /// Получает постер фильма по его ID
@@ -70,7 +70,7 @@ open class KinopoiskGetPoster {
     /// - parameter posterWidth: Ширина постера (стандартное значение 360)
     public static func getPosterImage(filmID : Int) {
         
-        KinopoiskFilm.getFilm(filmID: filmID)
+       /* KinopoiskFilm.getFilm(filmID: filmID)
         
         let URL = "https://st.kinopoisk.ru/images/\(KinopoiskFilm.resultingFilm?.posterURL)&width=360&purge=true"
         
@@ -79,7 +79,7 @@ open class KinopoiskGetPoster {
             let data = result
             posterImageData = data.data
         }
-        
+     */
     }
     
 }

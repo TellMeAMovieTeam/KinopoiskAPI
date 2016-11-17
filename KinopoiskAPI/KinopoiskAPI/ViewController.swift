@@ -42,10 +42,18 @@ class ViewController: UIViewController {
 
     @IBAction func getFilm(_ sender: AnyObject) {
         
-        KinopoiskFilm.getFilm(filmID: 714888)
-        print(KinopoiskFilm.resultingFilm?.posterURL)
-        print(KinopoiskFilm.resultingFilm?.nameEN)
-        print(KinopoiskFilm.resultingFilm?.description)
+        var filmData : Film?
+        
+        KinopoiskFilm.getFilm(filmID: 714888) { result in
+            
+            filmData = result
+            
+            print("Test val " + (filmData?.nameEN)!)
+            
+        }
+        //print("In func " + (filmData?.posterURL)!)
+        print(filmData?.nameRU)
+        print(filmData?.description)
         
     /*var test = ""
         
