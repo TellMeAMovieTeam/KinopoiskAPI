@@ -10,10 +10,10 @@ import Foundation
 
 open class KinopoiskStaff {
 
-    public static var staff : [AnyObject] = []
+    static var staff : [AnyObject] = []
     private static var category : [KPPerson] = []
     
-    public static func getStaff(filmID : Int) {
+    public static func getStaff(filmID : Int, completion: @escaping([AnyObject]) -> ()) {
         
         let URL = "https://api.kinopoisk.cf/getStaff?filmID=\(filmID)"
         
@@ -34,6 +34,8 @@ open class KinopoiskStaff {
                 
                 staff.append(category as AnyObject)
             }
+            
+            completion(staff)
             
         }
     

@@ -28,7 +28,7 @@ open class KinopoiskCountry {
     static var countrys : [Country] = []
     
     /// Получает страны и помещает их в Country
-    public static func getCountrys() {
+    public static func getCountrys(completion: @escaping ([Country]) -> ()) {
         
         let URL = "https://api.kinopoisk.cf/getCountryList"
         
@@ -50,6 +50,8 @@ open class KinopoiskCountry {
                 
                 countrys.append(Country(countryID : countryID, countryName : countryName))
             }
+            
+            completion(countrys)
             
         }
     

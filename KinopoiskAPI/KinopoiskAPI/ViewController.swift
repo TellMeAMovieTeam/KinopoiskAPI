@@ -12,20 +12,29 @@ class ViewController: UIViewController {
     
     @IBAction func getStaff(_ sender: AnyObject) {
         
-        KinopoiskStaff.getStaff(filmID: 714888)
-        print(KinopoiskStaff.staff.count)
+        KinopoiskStaff.getStaff(filmID: 714888) { result in
         
+            print(result.count)
+        
+        }
+    
     }
     @IBAction func searchFilms(_ sender: AnyObject) {
         
-        KinopoiskSearchFilms.searchFilm(Keyword: "Звездные")
-        print(KinopoiskSearchFilms.pagesCount)
+        KinopoiskSearchFilms.searchFilm(Keyword: "Звездные") { result in
+        
+            print(result.pagesCount)
+        
+        }
     }
     
     @IBAction func getCountry(_ sender: AnyObject) {
         
-        KinopoiskCountry.getCountrys()
-        print(KinopoiskCountry.countrys)
+        KinopoiskCountry.getCountrys() { result in
+            
+            print(result.count)
+        }
+
     }
     
     @IBAction func getGallery(_ sender: AnyObject) {

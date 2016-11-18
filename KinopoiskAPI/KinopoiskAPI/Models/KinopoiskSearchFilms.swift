@@ -41,21 +41,34 @@ public class SimpleFilm {
 
 }
 
+public struct KPFoundFilms{
+
+    public var foundFilms : [SimpleFilm]
+    public var pagesCount : Int
+    
+    public init(foundFilms : [SimpleFilm], pagesCount : Int) {
+        
+        self.foundFilms = foundFilms
+        self.pagesCount = pagesCount
+    }
+    
+}
+
 open class KinopoiskSearchFilms {
     
     
     /// Найденные фильмы
-    public static var foundFilms : [SimpleFilm] = []
+    static var foundFilms : [SimpleFilm] = []
     
     
     /// Количество страниц выдачи
-    public static var pagesCount : Int = 0
+    static var pagesCount : Int = 0
     
     
     /// Получает список найденных фильмов по ключевому слову. Найденные фильмы помещает в FoundFilms
     ///
     /// - parameter Keyword: Ключевое слово для поиска
-    public static func searchFilm(Keyword : String) {
+    public static func searchFilm(Keyword : String, completion: @escaping (KPFoundFilms) -> ()) {
     
         let escapedKeyword = Keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         
@@ -82,6 +95,10 @@ open class KinopoiskSearchFilms {
                 foundFilms.append(SimpleFilm(filmData: object))
                 
             }
+            
+            let kpFoundFilms : KPFoundFilms = KPFoundFilms(foundFilms: foundFilms, pagesCount: pagesCount)
+            
+            completion(kpFoundFilms)
             
         }
     }
