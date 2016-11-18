@@ -8,6 +8,20 @@
 
 import Foundation
 
+public struct KinopoiskGallerys {
+    
+    public var gallery : [GalleryImage]
+    public var gallery_SP : [GalleryImage]
+    public var posters : [GalleryImage]
+    
+    public init(gallery: [GalleryImage], gallery_SP: [GalleryImage], posters: [GalleryImage]) {
+    
+        self.gallery = gallery
+        self.gallery_SP = gallery_SP
+        self.posters = posters
+    
+    }
+}
 
 /// Данные об одном кадре фильма
 public class GalleryImage {
@@ -41,7 +55,7 @@ open class KinopoiskGallery {
     /// Получает галлереи для фильма по его ID
     ///
     /// - parameter filmID: ID фильма
-    public static func getGallery(filmID : Int) {
+    public static func getGallery(filmID : Int, completion: @escaping (KinopoiskGallerys) -> ()) {
         
         let getGalleryURL = "https://api.kinopoisk.cf/getGallery?filmID=\(filmID)"
         
@@ -94,6 +108,10 @@ open class KinopoiskGallery {
                 
                 posters.append(GalleryImage(imageURL: _imageURL, imagePreviewURL: _previewURL, socialURL: _socialURL))
             }
+            
+            let kpGallerys : KinopoiskGallerys = KinopoiskGallerys(gallery: gallery, gallery_SP: gallery_SP, posters: posters)
+            
+            completion(kpGallerys)
             
         }
     

@@ -30,14 +30,21 @@ class ViewController: UIViewController {
     
     @IBAction func getGallery(_ sender: AnyObject) {
         
-        KinopoiskGallery.getGallery(filmID: 714888)
-        print(KinopoiskGallery.gallery)
+        KinopoiskGallery.getGallery(filmID: 714888) { result in
+            
+            print(result.gallery)
+            print(result.gallery_SP)
+            print(result.posters)
+            
+        }
     }
     
     @IBAction func getGenres(_ sender: AnyObject) {
         
-        KinopoiskGenres.getGenres()
-        print(KinopoiskGenres.genres)
+        KinopoiskGenres.getGenres() { result in
+        
+            print(result)
+        }
     }
 
     @IBAction func getFilm(_ sender: AnyObject) {
@@ -48,25 +55,10 @@ class ViewController: UIViewController {
             
             filmData = result
             
-            print("Test val " + (filmData?.nameEN)!)
-            
+            print(filmData?.nameEN)
+            print(filmData?.nameRU)
+            print(filmData?.description)
         }
-        //print("In func " + (filmData?.posterURL)!)
-        print(filmData?.nameRU)
-        print(filmData?.description)
-        
-    /*var test = ""
-        
-      KinopoiskAPI.getFilm(filmID: 714888) { result in
-            test = result
-        }
-        
-    //print(test)
-        
-    var test2 = KinopoiskAPI.resultVar
-        print(test2)
-    */
-
         
     }
     override func viewDidLoad() {

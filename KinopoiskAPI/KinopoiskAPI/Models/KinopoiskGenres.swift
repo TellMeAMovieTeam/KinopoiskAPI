@@ -16,7 +16,7 @@ open class KinopoiskGenres {
     static var genres = [Genre]()
     
     /// Получает список жанров и помещает их в genres
-    public static func getGenres() {
+    public static func getGenres(completion: @escaping([Genre]) -> ()) {
         
         let getGenresURL = "https://api.kinopoisk.cf/getGenres"
         
@@ -38,6 +38,8 @@ open class KinopoiskGenres {
                 
                 genres.append(Genre(genreID : genreId, genreName : genreName))
             }
+            
+            completion(genres)
             
         }
     }

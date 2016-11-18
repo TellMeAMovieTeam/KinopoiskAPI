@@ -18,7 +18,6 @@ class KinopoiskFilm {
     public static func getFilm(filmID: Int, completion: @escaping(Film) -> ()) {
         
         let getFilmURL = "https://api.kinopoisk.cf/getFilm?filmID=\(filmID)"
-        var cReturn = ClientReturn()
         
         HTTPRequest.request(urlString: getFilmURL) { result in
            
@@ -26,8 +25,6 @@ class KinopoiskFilm {
             let json = JSON(data: filmData.data!)
 
             resultingFilm = Film(filmData: json)
-            
-            print("In resulting film: " + (resultingFilm?.nameEN)!)
             
             completion(resultingFilm!)
         }
