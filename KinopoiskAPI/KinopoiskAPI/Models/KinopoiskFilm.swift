@@ -12,9 +12,12 @@ class KinopoiskFilm {
     
     public static var resultingFilm : Film? = nil
     
+    
+    
     /// Получает фильм по указаному ID и помещает информацию о фильме в ResultingFilm
     ///
-    /// - parameter filmID: ID фильма
+    /// - parameter filmID:     ID фильма
+    /// - parameter completion: Один объект класса Film
     public static func getFilm(filmID: Int, completion: @escaping(Film) -> ()) {
         
         let getFilmURL = "https://api.kinopoisk.cf/getFilm?filmID=\(filmID)"
@@ -56,9 +59,13 @@ public class Film {
     
     private var category : [KPPerson] = []
     
+    
+    /// <#Description#>
+    ///
+    /// - parameter filmData: JSON с данными о фильме
+    ///
+    /// - returns: Объект класса Film
     public init(filmData : JSON) {
-        
-        // Gloss
         
         //TODO возможно добавить хранилку кадров
         

@@ -23,11 +23,12 @@ public class Country {
 
 open class KinopoiskCountry {
     
-    
     /// Список стран
     static var countrys : [Country] = []
     
     /// Получает страны и помещает их в Country
+    ///
+    /// - parameter completion: Массив объектов Country
     public static func getCountrys(completion: @escaping ([Country]) -> ()) {
         
         let URL = "https://api.kinopoisk.cf/getCountryList"
@@ -38,7 +39,7 @@ open class KinopoiskCountry {
             // преобразовали данные из строки в JSON
             let json = JSON(data: data.data!)
             
-            // в цикле прходим по объектам genreData
+            // в цикле проходим по объектам genreData
             // вместо _ можно поставить index
             for (_,object):(String, JSON) in json["countryData"] {
                 

@@ -15,7 +15,10 @@ open class KinopoiskGenres {
     /// Жанры
     static var genres = [Genre]()
     
-    /// Получает список жанров и помещает их в genres
+    
+    /// Получает все жанры и помещает их в переменную genres
+    ///
+    /// - parameter completion: Возвращает массив Genre
     public static func getGenres(completion: @escaping([Genre]) -> ()) {
         
         let getGenresURL = "https://api.kinopoisk.cf/getGenres"

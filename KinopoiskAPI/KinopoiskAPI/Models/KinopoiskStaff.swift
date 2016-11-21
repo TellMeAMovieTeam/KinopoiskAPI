@@ -13,6 +13,11 @@ open class KinopoiskStaff {
     static var staff : [AnyObject] = []
     private static var category : [KPPerson] = []
     
+    
+    /// Получает данные о создателях фильма
+    ///
+    /// - parameter filmID:     ID фильма
+    /// - parameter completion: Возвращает список создателей разбитый по категориям в виде массива AnyObject
     public static func getStaff(filmID : Int, completion: @escaping([AnyObject]) -> ()) {
         
         let URL = "https://api.kinopoisk.cf/getStaff?filmID=\(filmID)"
@@ -22,14 +27,12 @@ open class KinopoiskStaff {
             let data = result
             let json = JSON(data: data.data!)
             
-            //print(json)
             //зашли в "создатели"
             for (_,categoryJSON):(String, JSON) in json["creators"] {
                 //зашли в категорию
                 for (_,object):(String, JSON) in categoryJSON {
                     
                     category.append(KPPerson(personData: object))
-                    //print(object["nameEN"].stringValue)
                 }
                 
                 staff.append(category as AnyObject)

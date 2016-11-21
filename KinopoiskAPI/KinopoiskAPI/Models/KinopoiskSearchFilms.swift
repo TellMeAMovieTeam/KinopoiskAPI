@@ -25,7 +25,7 @@ public class SimpleFilm {
     var rating : String = ""
     
     init(filmData : JSON) {
-    
+        
         self.kinopoiskID = filmData["id"].intValue
         self.kpType = filmData["type"].stringValue
         self.nameRU = filmData["nameRU"].stringValue
@@ -38,11 +38,13 @@ public class SimpleFilm {
         self.genre = filmData["genre"].stringValue
         self.rating = filmData["rating"].stringValue
     }
-
+    
 }
 
-public struct KPFoundFilms{
 
+/// Структура с результатами о поиске
+public struct KPFoundFilms{
+    
     public var foundFilms : [SimpleFilm]
     public var pagesCount : Int
     
@@ -56,7 +58,6 @@ public struct KPFoundFilms{
 
 open class KinopoiskSearchFilms {
     
-    
     /// Найденные фильмы
     static var foundFilms : [SimpleFilm] = []
     
@@ -64,12 +65,12 @@ open class KinopoiskSearchFilms {
     /// Количество страниц выдачи
     static var pagesCount : Int = 0
     
-    
     /// Получает список найденных фильмов по ключевому слову. Найденные фильмы помещает в FoundFilms
     ///
     /// - parameter Keyword: Ключевое слово для поиска
+    /// - parameter completion: Возвращает структуру KPFoundFilms с данными результата
     public static func searchFilm(Keyword : String, completion: @escaping (KPFoundFilms) -> ()) {
-    
+        
         let escapedKeyword = Keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         
         let URL = "https://api.kinopoisk.cf/searchFilms?keyword=\(escapedKeyword)"
@@ -86,11 +87,6 @@ open class KinopoiskSearchFilms {
             //print(pagesCount)
             
             for (_,object):(String, JSON) in json["searchFilms"] {
-                
-                //let filmID = object["id"].intValue
-                //let filmNameRU = object["nameRU"].stringValue
-                //print("filmID \(filmID)")
-                //print("filmNameRU \(filmNameRU)")
                 
                 foundFilms.append(SimpleFilm(filmData: object))
                 
@@ -103,12 +99,12 @@ open class KinopoiskSearchFilms {
         }
     }
     
-    
     /// Получает список найденных фильмов по ключевому слову. Найденные фильмы помещает в FoundFilms
     ///
     /// - parameter Keyword: Ключевое слово для поиска
     /// - parameter Page:    Страница выдачи
-    public static func searchFilm(Keyword : String, Page : Int) {
+    /// - parameter completion: Возвращает структуру KPFoundFilms с данными результата
+    public static func searchFilm(Keyword : String, Page : Int, completion: @escaping (KPFoundFilms) -> ()) {
         
         let escapedKeyword = Keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         
@@ -119,31 +115,25 @@ open class KinopoiskSearchFilms {
             let data = result
             let json = JSON(data: data.data!)
             
-            //print(json)
-            
             pagesCount = json["pagesCount"].intValue
             
-            //print(pagesCount)
-            
             for (_,object):(String, JSON) in json["searchFilms"] {
-                
-                //let filmID = object["id"].intValue
-                //let filmNameRU = object["nameRU"].stringValue
-                //print("filmID \(filmID)")
-                //print("filmNameRU \(filmNameRU)")
                 
                 foundFilms.append(SimpleFilm(filmData: object))
                 
             }
             
+            let kpFoundFilms : KPFoundFilms = KPFoundFilms(foundFilms: foundFilms, pagesCount: pagesCount)
+            
+            completion(kpFoundFilms)
         }
     }
-    
     
     /// Получает количество страниц фильмов с найденным ключевым словом
     ///
     /// - parameter Keyword: Ключевое слово для поиска
-    public static func getSearchPages(Keyword : String) {
+    /// - parameter completion: Количество страниц выдачи
+    public static func getSearchPages(Keyword : String, completion: @escaping (Int) -> ()) {
         
         let escapedKeyword = Keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         
@@ -154,9 +144,9 @@ open class KinopoiskSearchFilms {
             let data = result
             let json = JSON(data: data.data!)
             
-            //print(json)
-            
             pagesCount = json["pagesCount"].intValue
+            
+            completion(pagesCount)
         }
     }
     

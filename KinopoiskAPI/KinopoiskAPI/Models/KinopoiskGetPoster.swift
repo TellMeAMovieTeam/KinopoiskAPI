@@ -14,6 +14,7 @@ open class KinopoiskGetPoster {
     ///
     /// - parameter posterURL:   URL постера
     /// - parameter posterWidth: Ширина постера (стандартное значение 360)
+    /// - parameter completion:  Данные о постере в виде Data
     public static func getPosterImage(posterURL : String, posterWidth : Int, completion: @escaping (Data) -> ()) {
         
         let URL = "https://st.kinopoisk.ru/images/\(posterURL)&width=\(posterWidth)&purge=true"
@@ -31,6 +32,7 @@ open class KinopoiskGetPoster {
     /// Получает постер фильма по URL постера. Ширина постера 360
     ///
     /// - parameter posterURL:   URL постера
+    /// - parameter completion:  Данные о постере в виде Data
     public static func getPosterImage(posterURL : String, completion: @escaping (Data) -> ()) {
         
         let URL = "https://st.kinopoisk.ru/images/\(posterURL)&width=360&purge=true"
@@ -49,6 +51,7 @@ open class KinopoiskGetPoster {
     ///
     /// - parameter filmID:      ID фильма
     /// - parameter posterWidth: Ширина постера (стандартное значение 360)
+    /// - parameter completion:  Данные о постере в виде Data
     public static func getPosterImage(filmID : Int, posterWidth : Int, completion: @escaping (Data) -> ()) {
         
         KinopoiskFilm.getFilm(filmID: filmID) { resultingFilm in
@@ -67,10 +70,10 @@ open class KinopoiskGetPoster {
         
     }
     
-    /// Получает постер фильма по его ID
+    /// Получает постер фильма по URL постера. Ширина постера 360
     ///
-    /// - parameter filmID:      ID фильма
-    /// - parameter posterWidth: Ширина постера (стандартное значение 360)
+    /// - parameter filmID:   ID фильма
+    /// - parameter completion:  Данные о постере в виде Data
     public static func getPosterImage(filmID : Int, completion: @escaping (Data) -> ()) {
         
         KinopoiskFilm.getFilm(filmID: filmID) { resultingFilm in

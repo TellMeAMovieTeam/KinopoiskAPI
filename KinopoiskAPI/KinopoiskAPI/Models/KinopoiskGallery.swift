@@ -8,6 +8,8 @@
 
 import Foundation
 
+
+/// Хранит в себе основные галлереи фильма
 public struct KinopoiskGallerys {
     
     public var gallery : [GalleryImage]
@@ -45,16 +47,16 @@ open class KinopoiskGallery {
     /// Простая галлерея
     public static var gallery : [GalleryImage] = []
     
-    /// <#Description#>
+    /// Дополнительная галлерея
     public static var gallery_SP : [GalleryImage] = []
     
     /// Галлерея постеров
     public static var posters : [GalleryImage] = []
     
-    
     /// Получает галлереи для фильма по его ID
     ///
     /// - parameter filmID: ID фильма
+    /// - parameter completion: Возвращает объект структуры KinopoiskGallerys
     public static func getGallery(filmID : Int, completion: @escaping (KinopoiskGallerys) -> ()) {
         
         let getGalleryURL = "https://api.kinopoisk.cf/getGallery?filmID=\(filmID)"
